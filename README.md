@@ -89,21 +89,6 @@ cd assets/awards-generator-be
 mvn clean install
 ```
 
-### Python Dependencies (for AI models)
-```bash
-pip install Dataset
-pip install text_generation
-```
-
-### SEMOSS Configuration
-Add to your SEMOSS instance's `RDF_Map.prop` file:
-```properties
-# Moose Model Configuration
-MOOSE_MODEL guanaco
-MOOSE_ENDPOINT https://play.semoss.org/moose
-GUANACO_ENDPOINT https://play.semoss.org/moose/guanaco/
-```
-
 ---
 
 ## Configuration
@@ -138,45 +123,13 @@ pnpm dev
 
 ### Workflow
 
-1. **Select Award Type**
-   - Navigate to `/awards/new`
-   - Choose from available DHA award types
-   - Award templates are pre-configured with appropriate citation formats
-
-2. **Select AI Model**
-   - Choose your preferred LLM model from available options
-   - Models are filtered for text-generation capabilities
-
-3. **Provide Candidate Information**
-   - **Option A**: Enter candidate information and accomplishments manually in the text area
-   - **Option B**: Upload supporting documents (PDF, DOCX, PPT, TXT)
-   - **Option C**: Combine both manual input and document uploads
-
-4. **Generate Citation**
-   - Click "Generate" to create the award citation
-   - View generated content in real-time with markdown rendering
-   - Draft is automatically saved to the database
-
-5. **Refine with Feedback**
-   - Review the generated citation
-   - Provide specific feedback on what to improve
-   - Click "Regenerate" to create an improved version
-   - All versions are saved and accessible
-
-6. **Version Navigation**
-   - Use version navigation to compare different iterations
-   - View feedback provided for each version
-   - Select the best version for your needs
-
-7. **Save and Manage Drafts**
-   - Drafts are automatically saved to the database
-   - Access previous drafts from the sidebar
-   - Each draft maintains its full version history
-   - Drafts persist across sessions and devices
-
-8. **Copy Citation**
-   - Use the "Copy to Clipboard" button to copy the citation
-   - Paste into award nomination forms or documents
+1. **Select Award Type and AI Model** - Navigate to `/awards/new` and choose from available DHA award types and LLM models
+2. **Provide Candidate Information** - Enter information manually, upload documents (PDF, DOCX, PPT, TXT), or combine both
+3. **Generate Citation** - Click "Generate" to create the award citation with markdown rendering
+4. **Refine with Feedback** - Provide feedback and regenerate to improve the citation
+5. **Manage Versions** - Compare different iterations and select the best version
+6. **Save and Access Drafts** - Drafts are automatically saved and accessible from the sidebar
+7. **Copy Citation** - Use "Copy to Clipboard" to paste into award nomination forms
 
 ### Building for Production
 ```bash
@@ -208,22 +161,19 @@ mvn clean package
 
 ### Upload to Govconnect.ai
 - Compress the `portals/` directory to a zip file
-- Create a new app on Govconnect.ai portal
-- Upload the zip file to version/assets/ (check "Unzip?" box)
-- Configure environment variables (MODULE, ACCESS_KEY, SECRET_KEY, APP, DATABASE)
-- Publish the portal from Settings → Data Apps tab
+- Create a new app and upload the zip file to version/assets/
+- Configure environment variables and publish the portal
 
 ---
 
 ## Contributing
 
 We welcome contributions to improve the Award Generator! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details on:
-- Code of conduct
-- Development workflow
-- Coding standards
-- Pull request process
-- Testing requirements
+- Reporting bugs and suggesting enhancements
+- Development workflow and setup
+- Testing your changes
 - Documentation guidelines
+- Release process
 
 ---
 
@@ -247,17 +197,12 @@ This project is proprietary software developed for the Defense Health Agency (DH
 
 ## Acknowledgments
 
-This project is built using the following technologies:
+This project is built using the following key technologies:
 
 - **[React](https://react.dev)** - UI framework
 - **[Material UI](https://mui.com)** - Component library
-- **[MobX](https://mobx.js.org)** - State management
 - **[SEMOSS](https://semoss.org)** - AI and analytics platform
 - **[TypeScript](https://www.typescriptlang.org)** - Type-safe JavaScript
 - **[Apache POI](https://poi.apache.org)** - Document processing
-- **[PDFBox](https://pdfbox.apache.org)** - PDF text extraction
-- **[Webpack](https://webpack.js.org)** - Module bundler
-- **[pnpm](https://pnpm.io)** - Fast, disk space efficient package manager
 
 ---
-
