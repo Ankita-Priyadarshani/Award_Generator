@@ -1,481 +1,157 @@
 # Contributing to Award Generator
 
-First off, thank you for considering contributing to the Award Generator! It's people like you that make this application a great tool for the Defense Health Agency.
+Thank you for your interest in contributing to the Award Generator! We welcome bug reports and pull requests to help improve this project.
 
-Following these guidelines helps to communicate that you respect the time of the developers managing and developing this open source project. In return, they should reciprocate that respect in addressing your issue, assessing changes, and helping you finalize your pull requests.
+---
 
 ## Table of Contents
 
-- [Code of Conduct](#code-of-conduct)
-- [What We're Looking For](#what-were-looking-for)
-- [Getting Started](#getting-started)
-- [How to Contribute](#how-to-contribute)
-  - [Reporting Bugs](#reporting-bugs)
-  - [Suggesting Enhancements](#suggesting-enhancements)
-  - [Your First Code Contribution](#your-first-code-contribution)
-  - [Pull Requests](#pull-requests)
-- [Style Guides](#style-guides)
-  - [Git Commit Messages](#git-commit-messages)
-  - [TypeScript Style Guide](#typescript-style-guide)
-  - [Java Style Guide](#java-style-guide)
-  - [Documentation Style Guide](#documentation-style-guide)
-- [Development Setup](#development-setup)
-- [Testing](#testing)
-- [Community](#community)
+- [Basics](#basics)
+- [Development Workflow](#development-workflow)
+- [Testing Your Work](#testing-your-work)
+- [Write Documentation](#write-documentation)
+- [Releasing a New Version](#releasing-a-new-version)
 
 ---
 
-## Code of Conduct
+## Basics
 
-This project and everyone participating in it is governed by our commitment to maintaining a professional, respectful, and inclusive environment. By participating, you are expected to uphold this standard. Please report unacceptable behavior to the project maintainers.
-
-### Our Standards
-
-**Examples of behavior that contributes to a positive environment:**
-- Using welcoming and inclusive language
-- Being respectful of differing viewpoints and experiences
-- Gracefully accepting constructive criticism
-- Focusing on what is best for the community
-- Showing empathy towards other community members
-
-**Examples of unacceptable behavior:**
-- The use of sexualized language or imagery and unwelcome sexual attention or advances
-- Trolling, insulting/derogatory comments, and personal or political attacks
-- Public or private harassment
-- Publishing others' private information without explicit permission
-- Other conduct which could reasonably be considered inappropriate in a professional setting
+1. Create an issue and describe your idea
+2. Fork the repository
+3. Create your feature branch (`git checkout -b my-new-feature`)
+4. Commit your changes (`git commit -am 'Add some feature'`)
+5. Publish the branch (`git push origin my-new-feature`)
+6. Create a new Pull Request
 
 ---
 
-## What We're Looking For
-
-There are many ways to contribute to the Award Generator, from writing tutorials or blog posts, improving the documentation, submitting bug reports and feature requests, or writing code which can be incorporated into the application itself.
-
-**We particularly welcome contributions in the following areas:**
-- Bug fixes and issue resolution
-- New award type templates
-- UI/UX improvements
-- Performance optimizations
-- Documentation enhancements
-- Test coverage improvements
-- Accessibility features
-- Security enhancements
-
----
-
-## Getting Started
-
-### Prerequisites
-
-Before you begin, ensure you have the following installed:
-- Node.js (v16+)
-- pnpm (v10.11.1+)
-- Java 8
-- Maven 3+
-- Git
-- A text editor or IDE (VS Code recommended)
-
-### Setting Up Your Development Environment
-
-1. **Fork the repository** on your Git hosting platform
-2. **Clone your fork** locally:
-   ```bash
-   git clone https://github.com/YOUR-USERNAME/AwardGenerator.git
-   cd AwardGenerator
-   ```
-
-3. **Create a branch** for your contribution:
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-
-4. **Install frontend dependencies**:
-   ```bash
-   cd assets/client
-   pnpm install
-   ```
-
-5. **Install backend dependencies**:
-   ```bash
-   cd ../awards-generator-be
-   mvn clean install
-   ```
-
-6. **Configure environment variables**:
-   - Copy `.env.example` to `.env` in `assets/client`
-   - Fill in required values (contact maintainers for development credentials)
-
-7. **Start the development server**:
-   ```bash
-   cd assets/client
-   pnpm dev
-   ```
-
----
-
-## How to Contribute
+## Development Workflow
 
 ### Reporting Bugs
 
-**Before submitting a bug report:**
-- Check the documentation to ensure it's not a configuration issue
-- Search existing issues to avoid duplicates
-- Update to the latest version to see if the issue persists
+Before creating a bug report, please check existing issues to avoid duplicates.
 
-**When submitting a bug report, include:**
-- A clear and descriptive title
-- Detailed steps to reproduce the issue
-- Expected behavior vs. actual behavior
-- Screenshots or error messages (if applicable)
-- Your environment details (OS, browser, Node.js version, etc.)
-- Any relevant logs or stack traces
+When filing a bug report, include:
 
-**Bug Report Template:**
-```markdown
-## Bug Description
-A clear description of what the bug is.
+- **Clear title**: Describe the issue concisely
+- **Steps to reproduce**: Provide detailed steps to reproduce the bug
+- **Expected behavior**: What you expected to happen
+- **Actual behavior**: What actually happened
+- **Environment**: Browser, OS, versions of dependencies
+- **Screenshots**: If applicable
+- **Error messages**: Full error messages and stack traces
 
-## Steps to Reproduce
-1. Go to '...'
-2. Click on '...'
-3. Enter '...'
-4. See error
+**Example:**
+```
+Title: Award Generator fails to upload PDF files larger than 10MB
 
-## Expected Behavior
-What you expected to happen.
+Steps to reproduce:
+1. Navigate to /awards/new
+2. Attempt to upload a PDF file larger than 10MB
+3. Click "Generate"
 
-## Actual Behavior
-What actually happened.
+Expected: File uploads successfully
+Actual: Upload fails with "File too large" error
 
-## Environment
-- OS: [e.g., Windows 10, macOS 12.0]
-- Browser: [e.g., Chrome 96, Firefox 95]
-- Node.js version: [e.g., 16.13.0]
-- App version: [e.g., 0.0.1-SNAPSHOT]
-
-## Additional Context
-Any other context about the problem.
+Environment: Chrome 119, Windows 11, React 17
 ```
 
 ### Suggesting Enhancements
 
-**Before submitting an enhancement:**
-- Check if the enhancement has already been suggested
-- Consider whether your idea fits the scope and aims of the project
-- Provide detailed use cases and examples
+Enhancement suggestions are welcome! Please provide:
 
-**When suggesting an enhancement, include:**
-- A clear and descriptive title
-- A detailed description of the proposed functionality
-- Explain why this enhancement would be useful
-- List any alternative solutions or features you've considered
-- Mockups, diagrams, or examples (if applicable)
-
-### Your First Code Contribution
-
-Unsure where to begin? Look for issues labeled:
-- `good-first-issue` - Simple issues suitable for beginners
-- `help-wanted` - Issues where we need community help
-- `documentation` - Documentation improvements
+- **Clear description**: What enhancement you'd like to see
+- **Use case**: Why this enhancement would be valuable
+- **Proposed solution**: Your ideas on how to implement it
+- **Alternatives considered**: Other approaches you've thought about
 
 ### Pull Requests
 
-**Before submitting a pull request:**
-1. Ensure your code follows the project's style guides
-2. Update documentation to reflect your changes
-3. Add or update tests as needed
-4. Run the linter and fix any issues: `pnpm lint:fix`
-5. Ensure all tests pass
-6. Update the README.md if adding new features
+Pull requests are the best way to contribute code. Please follow these steps:
 
-**Pull Request Process:**
+1. **Create an issue first**: Discuss your proposed changes
+2. **Fork the repository**: Create your own fork
+3. **Create a branch**: Use a descriptive branch name
+4. **Make your changes**: Follow our coding standards
+5. **Test thoroughly**: Ensure all tests pass
+6. **Update documentation**: If needed
+7. **Submit the PR**: With a clear description
 
-1. **Create a descriptive PR title:**
-   - `feat: Add new award type for civilian achievement`
-   - `fix: Resolve draft save issue in Firefox`
-   - `docs: Update installation instructions`
-   - `refactor: Improve AwardForm component structure`
+---
 
-2. **Fill out the PR template** with:
-   - Description of changes
-   - Related issue number (if applicable)
-   - Testing performed
-   - Screenshots (for UI changes)
-   - Checklist of completed tasks
+## Development Workflow
 
-3. **Link related issues** using keywords:
-   - `Fixes #123`
-   - `Closes #456`
-   - `Related to #789`
+### Step 1: Install Requirements
 
-4. **Request review** from maintainers
+```bash
+# Install frontend dependencies
+cd assets/client
+pnpm install
 
-5. **Address feedback** promptly and professionally
+# Install backend dependencies
+cd ../awards-generator-be
+mvn clean install
+```
 
-6. **Keep your PR updated** with the main branch:
-   ```bash
-   git checkout main
-   git pull upstream main
-   git checkout your-feature-branch
-   git rebase main
-   ```
+### Step 2: Configure Environment
 
-**Pull Request Template:**
-```markdown
-## Description
-Brief description of what this PR does.
+Create a `.env` file in `assets/client` directory:
+```env
+MODULE=your-module-name
+ACCESS_KEY=your-access-key
+SECRET_KEY=your-secret-key
+APP=your-app-id
+DATABASE=your-database-id
+```
 
-## Related Issue
-Fixes #(issue number)
+### Step 3: Run & Debug
 
-## Type of Change
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ] Documentation update
+```bash
+# Start development server
+cd assets/client
+pnpm dev
 
-## Testing
-Describe the tests you ran and how to reproduce them:
-- [ ] Test A
-- [ ] Test B
+# Application will be available at http://localhost:3000
+```
 
-## Checklist
-- [ ] My code follows the style guidelines of this project
-- [ ] I have performed a self-review of my own code
-- [ ] I have commented my code, particularly in hard-to-understand areas
-- [ ] I have made corresponding changes to the documentation
-- [ ] My changes generate no new warnings
-- [ ] I have added tests that prove my fix is effective or that my feature works
-- [ ] New and existing unit tests pass locally with my changes
-- [ ] Any dependent changes have been merged and published
+### Step 4: Test It
 
-## Screenshots (if applicable)
-Add screenshots to help explain your changes.
+```bash
+# Lint code
+pnpm lint
+
+# Type check
+pnpm type-check
+
+# Build frontend
+pnpm build
+
+# Build backend
+cd ../awards-generator-be
+mvn clean package
 ```
 
 ---
 
-## Style Guides
+## Testing Your Work
 
-### Git Commit Messages
+You can test your changes by running the application locally and verifying:
 
-Follow these conventions for clear, consistent commit messages:
+- The application builds without errors
+- Linting passes: `pnpm lint`
+- Type checking passes: `pnpm type-check`
+- The workflow functions as expected
+- No regressions in existing features
 
-**Format:**
-```
-<type>(<scope>): <subject>
-
-<body>
-
-<footer>
-```
-
-**Types:**
-- `feat`: New feature
-- `fix`: Bug fix
-- `docs`: Documentation changes
-- `style`: Code style changes (formatting, semicolons, etc.)
-- `refactor`: Code refactoring without changing functionality
-- `test`: Adding or updating tests
-- `chore`: Maintenance tasks, dependency updates
-
-**Examples:**
-```
-feat(awards): Add support for Joint Service Commendation Medal
-
-Implemented new award type with citation template and validation rules.
-Added unit tests for award generation logic.
-
-Closes #234
-```
-
-```
-fix(drafts): Resolve version navigation crash in Safari
-
-Fixed null pointer exception when navigating between draft versions
-in Safari browser. Added proper null checks and error handling.
-
-Fixes #456
-```
-
-**Guidelines:**
-- Use present tense ("Add feature" not "Added feature")
-- Use imperative mood ("Move cursor to..." not "Moves cursor to...")
-- Capitalize the first letter
-- No period at the end of the subject line
-- Limit subject line to 50 characters
-- Wrap body at 72 characters
-- Separate subject from body with a blank line
-- Use the body to explain what and why vs. how
-
-### TypeScript Style Guide
-
-**General Principles:**
-- Use TypeScript for all new files
-- Define types and interfaces explicitly
-- Avoid `any` type when possible
-- Use meaningful variable and function names
-- Follow React functional component patterns
-
-**Code Formatting:**
-```typescript
-// Use interfaces for object shapes
-interface Award {
-    id: string;
-    name: string;
-    prompt: string;
-}
-
-// Use function components with TypeScript
-const AwardForm: React.FC<AwardFormProps> = ({ onGenerate, isGenerating }) => {
-    // Component logic
-};
-
-// Use descriptive names
-const handleAwardGeneration = async () => {
-    // Implementation
-};
-
-// Use optional chaining
-const awardName = draft?.awardName ?? 'Unknown';
-
-// Use const for values that don't change
-const MAX_FILE_SIZE = 10 * 1024 * 1024;
-```
-
-**Linting:**
-- Run `pnpm lint` to check for issues
-- Run `pnpm lint:fix` to auto-fix issues
-- Run `pnpm format:fix` to format code with Prettier
-
-### Java Style Guide
-
-**General Principles:**
-- Follow Java naming conventions
-- Use meaningful class and method names
-- Add Javadoc comments for public methods
-- Handle exceptions appropriately
-- Follow SOLID principles
-
-**Code Formatting:**
-```java
-// Class names in PascalCase
-public class GenerateAwardReactor extends AbstractReactor {
-    
-    // Constants in UPPER_SNAKE_CASE
-    private static final String FILE_NAMES_KEY = "fileNames";
-    
-    // Method names in camelCase
-    public NounMetadata execute() {
-        // Implementation
-    }
-    
-    // Proper exception handling
-    try {
-        processDocument(file);
-    } catch (IOException e) {
-        classLogger.error("Failed to process document", e);
-        throw new SemossPixelException("Document processing failed");
-    }
-}
-```
-
-### Documentation Style Guide
-
-**Markdown Guidelines:**
-- Use clear, concise language
-- Include code examples where helpful
-- Add screenshots for UI-related documentation
-- Keep line length reasonable (80-100 characters)
-- Use proper heading hierarchy
-- Include table of contents for long documents
-
-**Code Comments:**
-- Comment "why" not "what"
-- Keep comments up to date with code changes
-- Use JSDoc/Javadoc for public APIs
-- Remove commented-out code before committing
-
----
-
-## Development Setup
-
-### Frontend Development
-
-**File Structure:**
-```
-assets/client/src/
-├── components/       # React components
-├── pages/           # Page components
-├── stores/          # MobX stores
-├── assets/          # Static assets
-└── App.tsx          # Root component
-```
-
-**Key Technologies:**
-- React 17 with functional components
-- MobX for state management
-- Material UI for components
-- TypeScript for type safety
-
-**Development Commands:**
 ```bash
-pnpm dev          # Start dev server
-pnpm build        # Build for production
-pnpm lint         # Check for linting errors
-pnpm lint:fix     # Fix linting errors
-pnpm format:fix   # Format code with Prettier
-pnpm type-check   # Run TypeScript type checking
-```
+# Run checks
+pnpm lint
+pnpm type-check
+pnpm build
 
-### Backend Development
-
-**File Structure:**
-```
-assets/awards-generator-be/src/main/java/
-└── awardsgenerator/
-    ├── reactor/     # SEMOSS reactors
-    └── util/        # Utility classes
-```
-
-**Key Components:**
-- SEMOSS Reactors for backend logic
-- Apache POI for document parsing
-- PDFBox for PDF processing
-
-**Build Commands:**
-```bash
-mvn clean install      # Build project
-mvn clean package      # Create JAR file
-mvn test               # Run tests
-```
-
----
-
-## Testing
-
-### Frontend Testing
-```bash
-# Run all tests
-pnpm test
-
-# Run tests in watch mode
-pnpm test:watch
-
-# Generate coverage report
-pnpm test:coverage
-```
-
-### Backend Testing
-```bash
-# Run all tests
-mvn test
-
-# Run specific test class
-mvn test -Dtest=GenerateAwardReactorTest
-
-# Run with coverage
-mvn clean test jacoco:report
+# Backend build
+cd assets/awards-generator-be
+mvn clean package
 ```
 
 ### Manual Testing Checklist
@@ -492,25 +168,55 @@ mvn clean test jacoco:report
 
 ---
 
-## Community
+## Write Documentation
 
-### Getting Help
+This project has documentation in a few places:
 
-If you need help with your contribution:
-- Check the [documentation](README.md)
-- Review existing issues and pull requests
-- Ask questions in issue comments
-- Contact the maintainers
+### README.md
+The main README provides an overview, installation instructions, and usage guidelines. Update this file when adding major features or changing how the application works.
 
-### Recognition
+### Code Comments
+Add clear comments for complex logic. Use JSDoc style for functions and components:
 
-Contributors will be recognized in:
-- The project's contributors list
-- Release notes (for significant contributions)
-- The acknowledgments section of the README
+```typescript
+/**
+ * Generates an award citation based on candidate information
+ * 
+ * @param candidateInfo - Information about the award candidate
+ * @param awardId - The ID of the award type
+ * @param modelId - The ID of the LLM model to use
+ * @returns Promise resolving to the generated citation
+ */
+async function generateAwardCitation(
+    candidateInfo: string,
+    awardId: string,
+    modelId: string
+): Promise<Citation> {
+    // Implementation
+}
+```
+
+### _PMO_Documentation.pptx
+For major features or architectural changes, update the comprehensive documentation in the project root.
 
 ---
 
-Thank you for contributing to the Award Generator! Your efforts help make this tool better for everyone at the Defense Health Agency.
+## Releasing a New Version
 
-**Questions?** Feel free to reach out to the project maintainers.
+1. Ensure all tests pass and the build is successful
+2. Update version number in `package.json` and `pom.xml`
+3. Create a Git tag: `git tag -a v0.1.0 -m "Release version 0.1.0"`
+4. Push the changes: `git push`
+5. Push the tag: `git push --tags`
+6. Build the application:
+   ```bash
+   cd assets/client
+   pnpm build
+   
+   cd ../awards-generator-be
+   mvn clean package
+   ```
+7. Create deployment package with required files
+8. Deploy to Govconnect.ai following deployment instructions in README.md
+
+---
