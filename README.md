@@ -30,7 +30,7 @@ Built as part of the SEMOSS PMO Portal, this application leverages advanced lang
 
 ## Key Features
 
-- **Multiple Award Types**: Support for various DHA military and civilian awards with pre-configured citation templates
+- **Multiple Award Types**: Support for various award types
 - **Document Upload**: Upload supporting documents (PDF, DOCX, PPT, TXT) to provide context for award generation
 - **AI-Powered Generation**: Utilizes Large Language Models (LLMs) to create professional award citations
 - **Flexible Input**: Enter candidate information manually or upload supporting documents
@@ -123,7 +123,7 @@ pnpm dev
 
 ### Workflow
 
-1. **Select Award Type and AI Model** - Navigate to `/awards/new` and choose from available DHA award types and LLM models
+1. **Select Award Type and AI Model** - Choose from available award types and LLM models
 2. **Provide Candidate Information** - Enter information manually, upload documents (PDF, DOCX, PPT, TXT), or combine both
 3. **Generate Citation** - Click "Generate" to create the award citation with markdown rendering
 4. **Refine with Feedback** - Provide feedback and regenerate to improve the citation
