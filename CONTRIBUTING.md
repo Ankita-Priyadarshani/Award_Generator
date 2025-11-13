@@ -154,18 +154,6 @@ cd assets/awards-generator-be
 mvn clean package
 ```
 
-### Manual Testing Checklist
-- [ ] Test with different award types
-- [ ] Test file upload functionality
-- [ ] Test with and without uploaded files
-- [ ] Test feedback and regeneration
-- [ ] Test draft saving and loading
-- [ ] Test version navigation
-- [ ] Test copy to clipboard
-- [ ] Test on different browsers (Chrome, Firefox, Safari, Edge)
-- [ ] Test responsive design on mobile devices
-- [ ] Test error handling for edge cases
-
 ---
 
 ## Write Documentation
